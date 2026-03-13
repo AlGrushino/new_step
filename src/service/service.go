@@ -4,8 +4,6 @@ import (
 	"context"
 	"step/repository"
 	"step/service/users"
-
-	"gorm.io/gorm"
 )
 
 type UsersService interface {
@@ -16,7 +14,7 @@ type Service struct {
 	UsersService
 }
 
-func NewUsersService(db *gorm.DB, repo *repository.Repository) *Service {
+func NewUsersService(repo *repository.Repository) *Service {
 	return &Service{
 		UsersService: users.NewUsersService(repo),
 	}
